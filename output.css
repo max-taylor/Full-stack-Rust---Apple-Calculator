@@ -600,9 +600,9 @@ video {
   background-color: rgb(23 36 37 / var(--tw-bg-opacity));
 }
 
-.bg-orange {
+.bg-darkGrey {
   --tw-bg-opacity: 1;
-  background-color: rgb(253 141 24 / var(--tw-bg-opacity));
+  background-color: rgb(45 49 49 / var(--tw-bg-opacity));
 }
 
 .bg-lightGrey {
@@ -610,9 +610,9 @@ video {
   background-color: rgb(77 82 80 / var(--tw-bg-opacity));
 }
 
-.bg-darkGrey {
+.bg-orange {
   --tw-bg-opacity: 1;
-  background-color: rgb(45 49 49 / var(--tw-bg-opacity));
+  background-color: rgb(253 141 24 / var(--tw-bg-opacity));
 }
 
 .py-1 {
@@ -643,14 +643,14 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
-.active\:bg-\[rgb\(184\2c 115\2c 51\)\]:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(184 115 51 / var(--tw-bg-opacity));
-}
-
 .active\:bg-\[rgb\(180\2c 180\2c 180\)\]:active {
   --tw-bg-opacity: 1;
   background-color: rgb(180 180 180 / var(--tw-bg-opacity));
+}
+
+.active\:bg-\[rgb\(184\2c 115\2c 51\)\]:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(184 115 51 / var(--tw-bg-opacity));
 }
 
 .active\:bg-lightGrey:active {

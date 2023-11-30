@@ -2,6 +2,8 @@
 
 This repository contains the source code for a desktop application that replicates the functionality and aesthetic of Apple's Calculator. It is built using Rust with Tauri and Yew frameworks, and styled using Tailwind CSS.
 
+![Demo Video](https://github.com/max-taylor/Full-stack-Rust---Apple-Calculator/blob/main/example/demo_video.gif)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.

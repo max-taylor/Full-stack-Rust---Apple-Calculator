@@ -105,6 +105,7 @@ pub fn app() -> Html {
         let has_dot_pressed = has_dot_pressed.clone();
 
         Callback::from(move |passed_action: Action| {
+            // If there is an action already pressed and a temporary_value, then we want to apply that previous action
             if let (Some(existing_action), Some(temp_value)) = (*action, *temp_value) {
                 match existing_action {
                     Action::Add => {
@@ -137,6 +138,7 @@ pub fn app() -> Html {
                 action.set(None);
             }
 
+            // Reset our temporary states
             temp_value.set(None);
             trailing_dot.set(false);
             has_dot_pressed.set(false);
@@ -174,18 +176,18 @@ pub fn app() -> Html {
         })
     };
 
-    let handle_dot_press = {
-        let trailing_dot = trailing_dot.clone();
-        let has_dot_pressed = has_dot_pressed.clone();
+    // let handle_dot_press = {
+    //     let trailing_dot = trailing_dot.clone();
+    //     let has_dot_pressed = has_dot_pressed.clone();
 
-        Callback::from(move |_| {
-            if *has_dot_pressed {
-                return;
-            }
+    //     Callback::from(move |_| {
+    //         if *has_dot_pressed {
+    //             return;
+    //         }
 
-            trailing_dot.set(true);
-        })
-    };
+    //         trailing_dot.set(true);
+    //     })
+    // };
 
     html! {
       <div class={classes!("h-screen", "w-screen", "bg-background", "flex-col", "flex")}>
@@ -210,35 +212,35 @@ pub fn app() -> Html {
           </button>
           <ActionButton action={Action::Divide} onclick={handle_action_button.clone()} selected_action={*action}  />
         </div>
-        <div class={classes!("flex", "flex-1", "flex-row")}>
-          <NumberButton value={7.0} onclick={handle_number_button.clone()} />
-          <NumberButton value={8.0} onclick={handle_number_button.clone()} />
-          <NumberButton value={9.0} onclick={handle_number_button.clone()} />
-          <ActionButton action={Action::Multiply} onclick={handle_action_button.clone()} selected_action={*action} />
-        </div>
-        <div class={classes!("flex", "flex-1", "flex-row")}>
-          <NumberButton value={4.0} onclick={handle_number_button.clone()} />
-          <NumberButton value={5.0} onclick={handle_number_button.clone()} />
-          <NumberButton value={6.0} onclick={handle_number_button.clone()} />
-          <ActionButton action={Action::Subtract} onclick={handle_action_button.clone()} selected_action={*action} />
-        </div>
-        <div class={classes!("flex", "flex-1", "flex-row")}>
-          <NumberButton value={1.0} onclick={handle_number_button.clone()} />
-          <NumberButton value={2.0} onclick={handle_number_button.clone()} />
-          <NumberButton value={3.0} onclick={handle_number_button.clone()} />
-          <ActionButton action={Action::Add} onclick={handle_action_button.clone()} selected_action={*action} />
-        </div>
-        <div class={classes!("flex", "flex-1", "flex-row")}>
-          <div class={classes!("flex", "flex-1")}>
-            <NumberButton value={0.0} onclick={handle_number_button.clone()} />
-          </div>
-          <div class={classes!("flex", "flex-1")}>
-            <button onclick={handle_dot_press} class={get_button_styles(classes!("bg-lightGrey"))}>
-              {"."}
-            </button>
-            <ActionButton action={Action::Equals} onclick={handle_action_button.clone()} selected_action={*action}  />
-          </div>
-        </div>
+        // <div class={classes!("flex", "flex-1", "flex-row")}>
+        //   <NumberButton value={7.0} onclick={handle_number_button.clone()} />
+        //   <NumberButton value={8.0} onclick={handle_number_button.clone()} />
+        //   <NumberButton value={9.0} onclick={handle_number_button.clone()} />
+        //   <ActionButton action={Action::Multiply} onclick={handle_action_button.clone()} selected_action={*action} />
+        // </div>
+        // <div class={classes!("flex", "flex-1", "flex-row")}>
+        //   <NumberButton value={4.0} onclick={handle_number_button.clone()} />
+        //   <NumberButton value={5.0} onclick={handle_number_button.clone()} />
+        //   <NumberButton value={6.0} onclick={handle_number_button.clone()} />
+        //   <ActionButton action={Action::Subtract} onclick={handle_action_button.clone()} selected_action={*action} />
+        // </div>
+        // <div class={classes!("flex", "flex-1", "flex-row")}>
+        //   <NumberButton value={1.0} onclick={handle_number_button.clone()} />
+        //   <NumberButton value={2.0} onclick={handle_number_button.clone()} />
+        //   <NumberButton value={3.0} onclick={handle_number_button.clone()} />
+        //   <ActionButton action={Action::Add} onclick={handle_action_button.clone()} selected_action={*action} />
+        // </div>
+        // <div class={classes!("flex", "flex-1", "flex-row")}>
+        //   <div class={classes!("flex", "flex-1")}>
+        //     <NumberButton value={0.0} onclick={handle_number_button.clone()} />
+        //   </div>
+        //   <div class={classes!("flex", "flex-1")}>
+        //     <button onclick={handle_dot_press} class={get_button_styles(classes!("bg-lightGrey"))}>
+        //       {"."}
+        //     </button>
+        //     <ActionButton action={Action::Equals} onclick={handle_action_button.clone()} selected_action={*action}  />
+        //   </div>
+        // </div>
       </div>
     }
 }
